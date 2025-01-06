@@ -71,7 +71,7 @@ class BirthdayCard:ComponentActivity() {
                         end = 16.dp,
                         bottom = 16.dp
                     )
-                    .align(alignment = Alignment.End)
+                    .align(alignment = Alignment.CenterHorizontally)
 
             )
         }
