@@ -14,6 +14,17 @@
         android:theme="@style/Theme.PlayWithCompose"
         tools:targetApi="31">
         <activity
+            android:name=".TipTime"
+            android:exported="true"
+            android:label="@string/title_activity_tip_time"
+            android:theme="@style/Theme.PlayWithCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ComposeQuadrant"
             android:exported="false"
             android:label="@string/title_activity_compose_quadrant"
@@ -22,7 +33,7 @@
             android:name=".ComposeTutorial"
             android:exported="false"
             android:label="@string/title_activity_compose_tutorial"
-            android:theme="@style/Theme.PlayWithCompose"></activity>
+            android:theme="@style/Theme.PlayWithCompose" />
         <activity
             android:name=".BirthdayCard"
             android:exported="false"
@@ -43,11 +54,7 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.PlayWithCompose">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
