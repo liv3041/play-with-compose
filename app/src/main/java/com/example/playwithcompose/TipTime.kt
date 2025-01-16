@@ -38,6 +38,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -49,6 +50,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.playwithcompose.ui.theme.PlayWithComposeTheme
 import java.text.NumberFormat
+import androidx.annotation.DrawableRes
+import androidx.compose.material3.Icon
 
 class TipTime : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,8 +98,10 @@ fun TipTimeLayout() {
                 .padding(bottom = 32.dp)
                 .fillMaxWidth(),
             label = {Text(stringResource(R.string.bill_amount))},
+
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number,
-                imeAction = ImeAction.Next)
+                imeAction = ImeAction.Next),
+            leadingIcon = R.drawable.money
         )
         EditNumberField(
             value = tipInput,
@@ -106,7 +111,8 @@ fun TipTimeLayout() {
                 .fillMaxWidth(),
             label =  {Text(stringResource(R.string.how_was_the_service))},
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number,
-                imeAction = ImeAction.Done)
+                imeAction = ImeAction.Done),
+            leadingIcon = R.drawable.percent
         )
         RoundTheTipRow(
             roundUp = roundUp,
@@ -138,14 +144,15 @@ fun TipTimeLayout() {
 
 
 @Composable
-private fun EditNumberField(value: String, onValueChange: (String) -> Unit, modifier: Modifier = Modifier,label: (@Composable () -> Unit),keyboardOptions: KeyboardOptions) {
+private fun EditNumberField(value: String, onValueChange: (String) -> Unit, modifier: Modifier = Modifier,label: (@Composable () -> Unit),keyboardOptions: KeyboardOptions,leadingIcon: Int ) {
     TextField(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
         label = label,
         singleLine = true,
-        keyboardOptions = keyboardOptions
+        keyboardOptions = keyboardOptions,
+        leadingIcon = {Icon(painterResource(id = leadingIcon), null)}
     )
 }
 @Composable
