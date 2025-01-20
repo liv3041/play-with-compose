@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.playwithcompose">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,17 +15,23 @@
         android:theme="@style/Theme.PlayWithCompose"
         tools:targetApi="31">
         <activity
-            android:name=".TipTime"
+            android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/title_activity_tip_time"
-            android:theme="@style/Theme.PlayWithCompose">
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.PlayWithCompose" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".TipTime"
+            android:exported="false"
+            android:label="@string/title_activity_tip_time"
+            android:theme="@style/Theme.PlayWithCompose">
 
+        </activity>
     </application>
 
 </manifest>
